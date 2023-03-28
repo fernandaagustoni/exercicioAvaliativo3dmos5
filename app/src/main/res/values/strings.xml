@@ -5,5 +5,7 @@
     <string name="remember_login">Lembrar-me</string>
     <string name="button_login">Entrar</string>
     <string name="button_new_user">Cadastrar novo usuário</string>
-    <string name="teste">Teste</string>
+    <string name="hint_input_new_user">Usuário</string>
+    <string name="hint_input_password_confirm">Confirme sua senha</string>
+    <string name="button_create_new_user">Salvar</string>
 </resources>

@@ -6,4 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".view.NewUserActivity">
 
+    <EditText
+        android:id="@+id/edittext_new_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:hint="@string/hint_input_new_user"
+        android:inputType="text"
+        android:textColor="#000"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edittext_password_new_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:hint="@string/hint_input_password"
+        android:inputType="text"
+        android:textColor="#000"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_new_user" />
+
+
+    <EditText
+        android:id="@+id/edittext_new_password_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:hint="@string/hint_input_password_confirm"
+        android:inputType="text"
+        android:textColor="#000"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_password_new_user" />
+
+    <Button
+        android:id="@+id/btn_create_new_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/button_create_new_user"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittext_new_password_confirm" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

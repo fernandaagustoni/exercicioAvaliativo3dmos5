@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText passwordEditText;
     private Button buttonSignup ;
     private Button buttonSignIn;
-    private CheckBox remebermeCheckBox;
     private UserDao mUserDao;
 
 
@@ -32,8 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         usernameEditText = findViewById(R.id.edittext_user);
         passwordEditText = findViewById(R.id.edittext_password);
-
-        remebermeCheckBox = findViewById(R.id.remember_login);
 
         buttonSignIn = findViewById(R.id.btn_login);
         buttonSignIn.setOnClickListener(this);
