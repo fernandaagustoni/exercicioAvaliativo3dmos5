@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">AgendaDMO</string>
+    <string name="app_name_newuser">Novo usuário</string>
+    <string name="app_name_newcontact">Novo contato</string>
+    <string name="app_name_contact">Contatos</string>
     <string name="hint_input_user">Digite o seu usuário</string>
     <string name="hint_input_password">Digite a sua senha</string>
     <string name="remember_login">Lembrar-me</string>
