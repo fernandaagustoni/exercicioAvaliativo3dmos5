@@ -8,4 +8,7 @@
     <string name="hint_input_new_user">Usuário</string>
     <string name="hint_input_password_confirm">Confirme sua senha</string>
     <string name="button_create_new_user">Salvar</string>
+    <string name="text_message">Selecione seu contato</string>
+    <string name="button_create_new_contact">Novo contato</string>
+    <string name="button_call">Ligar</string>
 </resources>
