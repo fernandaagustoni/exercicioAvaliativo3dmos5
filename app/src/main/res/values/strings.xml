@@ -11,4 +11,7 @@
     <string name="text_message">Selecione seu contato</string>
     <string name="button_create_new_contact">Novo contato</string>
     <string name="button_call">Ligar</string>
+    <string name="hint_input_contact_nickname">Apelido</string>
+    <string name="hint_input_contact_fullname">Nome completo</string>
+    <string name="hint_input_new_contact_phonenumber">Telefone</string>
 </resources>

@@ -29,13 +29,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_message" />
 
+    <TextView
+        android:id="@+id/textview_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="45dp"
+        android:textAlignment="center"
+        android:textColor="@color/darkPink"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_contacts" />
+
+    <TextView
+        android:id="@+id/textview_details_phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:textAlignment="center"
+        android:textColor="@color/darkPink"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_details" />
+
     <Button
         android:id="@+id/btn_create_new_contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="180dp"
         android:text="@string/button_create_new_contact"
         app:layout_constraintTop_toBottomOf="@+id/spinner_contacts" />
 
