@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences.Editor mEditor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(getString(R.string.tag), "Classe: " + getClass().getSimpleName() +  "| Método : onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -153,10 +154,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    /*
-    Aqui recuperamos as preferências do usuário, e caso existam (boolean lembrar) atualizamos
-    os dados na tela da activity.
-     */
     private void checkPreferences() {
         user = mSharedPreferences.getString(getString(R.string.key_user), "");
         password = mSharedPreferences.getString(getString(R.string.key_password), "");
