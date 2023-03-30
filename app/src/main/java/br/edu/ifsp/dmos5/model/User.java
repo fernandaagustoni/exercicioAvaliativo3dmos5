@@ -1,15 +1,16 @@
 package br.edu.ifsp.dmos5.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class User {
+
     private String username;
     private String password;
-    private List<Contact> contacts;
 
-    public User(String username, String password){
-        contacts = new ArrayList<>();
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
@@ -30,7 +31,12 @@ public class User {
         this.password = password;
     }
 
-    public void addContact(Contact contact){
-        contacts.add(contact);
+    @NonNull
+    @Override
+    public String toString() {
+        return getUsername() + " | " + getPassword();
+    }
+
+    public void addContact(Contact contact) {
     }
 }

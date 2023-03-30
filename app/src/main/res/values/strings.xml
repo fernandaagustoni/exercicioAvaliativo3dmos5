@@ -17,4 +17,20 @@
     <string name="hint_input_contact_nickname">Apelido</string>
     <string name="hint_input_contact_fullname">Nome completo</string>
     <string name="hint_input_new_contact_phonenumber">Telefone</string>
+    <string name="message_empty_field">É necessário preenchimento de todos os campos</string>
+    <string name="message_password_not_match">As senhas não são correspondentes</string>
+    <string name="message_user_created">O usuário foi criado com sucesso</string>
+    <string name="message_user_already_created">O usuário já existe</string>
+    <string name="message_welcome">Seja Bem Vindo</string>
+    <string name="message_user_not_found">Usuário não encontrado</string>
+    <string name="message_erro">Erro</string>
+    <string name="file_user">loginlocal.usuarios</string>
+    <string name="key_user">USUARIO</string>
+    <string name="key_password">SENHA</string>
+    <string name="key_remember">LEMBRAR</string>
+    <string name="key_users_db">USERS</string>
+    <string name="file_preferences">loginlocal.preferencias</string>
+    <string name="file_users">loginlocal.usuarios</string>
+    <string name="tag">LOGIN_LOCAL</string>
+    <string name="message_get_users_error">Erro ao recuperar lista de usuários cadastrados.</string>
 </resources>

@@ -1,9 +1,14 @@
 package br.edu.ifsp.dmos5.dao;
 
-import br.edu.ifsp.dmos5.view.MainActivity;
+import java.util.List;
 
-public class UserDao {
+import br.edu.ifsp.dmos5.model.Contact;
+import br.edu.ifsp.dmos5.model.User;
 
-    public UserDao(MainActivity mainActivity) {
-    }
+public interface UserDao {
+    int userAdd(User usuario);
+
+    void addContact(User user, Contact contato);
+    User findByUsername(String username);
+    List<User> findAll();
 }

@@ -16,6 +16,7 @@ public class ContactsDaoImpl implements ContactsDao {
 
         database.add(new Contact(1,"Fer", "Fernanda", "111"));
         database.add(new Contact(2,"Rafa", "Rafael", "222"));
+        database.add(new Contact(3,"Ana", "Ana Silva", "333"));
     }
 
     @Override
@@ -28,7 +29,7 @@ public class ContactsDaoImpl implements ContactsDao {
     @Override
     public Contact findById(int id) {
         return database.stream()
-                .filter(beer1 -> beer1.getId() == id)
+                .filter(contact1 -> contact1.getId() == id)
                 .findAny()
                 .orElse(null);
     }

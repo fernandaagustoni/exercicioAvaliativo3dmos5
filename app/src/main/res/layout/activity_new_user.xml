@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink"
     tools:context=".view.NewUserActivity">
 
     <EditText
@@ -26,7 +27,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:hint="@string/hint_input_password"
-        android:inputType="text"
+        android:inputType="textWebPassword"
         android:textColor="#000"
         app:layout_constraintTop_toBottomOf="@+id/edittext_new_user" />
 
@@ -39,7 +40,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:hint="@string/hint_input_password_confirm"
-        android:inputType="text"
+        android:inputType="textWebPassword"
         android:textColor="#000"
         app:layout_constraintTop_toBottomOf="@+id/edittext_password_new_user" />
 
