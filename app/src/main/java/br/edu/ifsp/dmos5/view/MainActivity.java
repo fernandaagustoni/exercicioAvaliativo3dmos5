@@ -46,12 +46,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
 
+        Bundle bundle = new Bundle();
+        bundle.putString("username", username);
+        bundle.putString("password", username);
+
         if(username.matches("") || password.matches("")){
             Toast.makeText(this, R.string.message_empty_field, Toast.LENGTH_LONG).show();
         }else{
             Intent intent = new Intent(this, ContactsActivity.class);
-            intent.putExtra("username", username);
-            intent.putExtra("password", password);
+            intent.putExtras(bundle);
             startActivity(intent);
         }
     }

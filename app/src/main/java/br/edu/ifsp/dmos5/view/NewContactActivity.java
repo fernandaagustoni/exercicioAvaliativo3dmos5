@@ -55,11 +55,14 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
         return super.onOptionsItemSelected(item);
     }
 
-    private void getUser(){
-        String username = getIntent().getStringExtra("username");
-
+    private void getUser() {
+        Bundle bundle = getIntent().getExtras();
+        String username = null;
+        if (bundle != null) {
+            username = getIntent().getStringExtra("username");
+        }
         mUser = UserDaoImpl.getInstance().findByUsername(username);
-        if(mUser != null){
+        if (mUser != null) {
             saveContact();
         }
     }

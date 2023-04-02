@@ -36,7 +36,6 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         getUsers();
         populateSpinner();
     }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -94,23 +93,29 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     }
 
     private void getUsers(){
-        String username = getIntent().getStringExtra("username");
-        String password = getIntent().getStringExtra("password");
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            String username = getIntent().getStringExtra("username");
+            String password = getIntent().getStringExtra("password");
 
-        if (UserDaoImpl.getInstance().validateUser(username, password)){
-            user = UserDaoImpl.getInstance().findByUsername(username);
-            Toast.makeText(this, R.string.message_welcome, Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(this, R.string.message_user_not_found, Toast.LENGTH_LONG).show();
-            finish();
+            if (UserDaoImpl.getInstance().validateUser(username, password)) {
+                user = UserDaoImpl.getInstance().findByUsername(username);
+                Toast.makeText(this, R.string.message_welcome, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, R.string.message_user_not_found, Toast.LENGTH_LONG).show();
+                finish();
+            }
         }
     }
     private void registerNewContact(User user) {
-        String username = getIntent().getStringExtra("username");
-        String password = getIntent().getStringExtra("password");
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle != null){
+            String username = getIntent().getStringExtra("username");
+            String password = getIntent().getStringExtra("password");
+        }
         Intent intent = new Intent(this, NewContactActivity.class);
-        intent.putExtra("username", username);
-        intent.putExtra("password", password);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 }

@@ -19,7 +19,6 @@ public class ContactSpinnerAdapter extends ArrayAdapter<Contact> {
     public ContactSpinnerAdapter(@NonNull Context context, int resource, @NonNull List<Contact> values) {
         super(context, resource, values);
     }
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
