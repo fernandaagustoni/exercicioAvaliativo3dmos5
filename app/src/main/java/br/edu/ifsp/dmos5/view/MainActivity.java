@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import br.edu.ifsp.dmos5.R;
+import br.edu.ifsp.dmos5.model.Cryptography;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText usernameEditText;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void openContacts(){
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
+        String passwordMD5 = Cryptography.getHashMd5(password);
 
         Bundle bundle = new Bundle();
         bundle.putString("username", username);

@@ -3,6 +3,8 @@ package br.edu.ifsp.dmos5.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +18,7 @@ import br.edu.ifsp.dmos5.R;
 import br.edu.ifsp.dmos5.dao.ContactsDaoImpl;
 import br.edu.ifsp.dmos5.dao.UserDaoImpl;
 import br.edu.ifsp.dmos5.model.Contact;
+import br.edu.ifsp.dmos5.model.Cryptography;
 import br.edu.ifsp.dmos5.model.User;
 import br.edu.ifsp.dmos5.view.adapter.ContactSpinnerAdapter;
 
@@ -24,7 +27,9 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     private TextView mTextView;
     private TextView nTextView;
     private Button buttonCreateNewContact;
+    private Button buttonCall;
     private User user;
+    String phoneNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +52,7 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         mTextView = findViewById(R.id.textview_details_fullname);
         nTextView = findViewById(R.id.textview_details_phoneNumber);
         buttonCreateNewContact = findViewById(R.id.btn_create_new_contact);
+        buttonCall = findViewById(R.id.btn_call);
     }
     private  void clickListener(){
         mSpinner.setOnItemSelectedListener(this);
@@ -56,6 +62,9 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     public void onClick(View view) {
         if (view == buttonCreateNewContact) {
             registerNewContact(user);
+        }
+        if (view == buttonCall){
+            call();
         }
     }
     @Override
@@ -97,6 +106,7 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         if(bundle != null) {
             String username = getIntent().getStringExtra("username");
             String password = getIntent().getStringExtra("password");
+            String passwordMD5 = Cryptography.getHashMd5(password);
 
             if (UserDaoImpl.getInstance().validateUser(username, password)) {
                 user = UserDaoImpl.getInstance().findByUsername(username);
@@ -109,13 +119,15 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     }
     private void registerNewContact(User user) {
         Bundle bundle = getIntent().getExtras();
-
         if(bundle != null){
             String username = getIntent().getStringExtra("username");
             String password = getIntent().getStringExtra("password");
+            String passwordMD5 = Cryptography.getHashMd5(password);
         }
         Intent intent = new Intent(this, NewContactActivity.class);
         intent.putExtras(bundle);
         startActivity(intent);
+    }
+    private void call() {
     }
 }

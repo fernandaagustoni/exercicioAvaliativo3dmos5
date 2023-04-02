@@ -2,6 +2,8 @@ package br.edu.ifsp.dmos5.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -76,9 +78,6 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
             Contact c = new Contact(nickname, fullName, phoneNumber);
             mUser.getContacts().addContacts(c);
             Toast.makeText(this, R.string.message_contact_created, Toast.LENGTH_LONG).show();
-            Log.i(nickname,"I am here Nick");
-            Log.i(fullName,"I am here Full");
-            Log.i(phoneNumber,"I am here Phone");
             finish();
         }else{
             Toast.makeText(this, R.string.message_contact_already_created, Toast.LENGTH_SHORT).show();
