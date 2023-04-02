@@ -7,8 +7,8 @@ import br.edu.ifsp.dmos5.model.User;
 
 public interface UserDao {
     void userAdd(User user);
-    void addContact(User user, Contact contact);
     User findByUsername(String username);
     boolean validateUser(String username, String password);
     List<User> findAll();
+    //void setUserContacts();
 }

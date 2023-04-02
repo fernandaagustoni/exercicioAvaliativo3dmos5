@@ -12,7 +12,7 @@ import br.edu.ifsp.dmos5.model.User;
 
 public class UserDaoImpl implements UserDao {
     private static UserDaoImpl instance = null;
-    private List<User> database = new ArrayList<User>();
+    private static List<User> database = new ArrayList<User>();
     public UserDaoImpl(){};
 
     public static UserDaoImpl getInstance(){
@@ -41,15 +41,6 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    @Override
-    public void addContact(User user, Contact contact) {
-        for (User users: database){
-            if (users == user){
-                user.addContact(contact);
-            }
-        }
-    }
-
     public User findByUsername(String userLogin){
         User foundUser = null;
         if (database.isEmpty()){
@@ -63,8 +54,13 @@ public class UserDaoImpl implements UserDao {
         }
         return foundUser;
     }
+    public static void setUser(List<User> database){
+        UserDaoImpl.database = database;
+    }
+
     @Override
     public List<User> findAll() {
         return database;
     }
+
 }

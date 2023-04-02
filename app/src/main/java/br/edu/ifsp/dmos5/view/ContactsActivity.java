@@ -14,19 +14,18 @@ import android.widget.Toast;
 import java.util.List;
 import br.edu.ifsp.dmos5.R;
 import br.edu.ifsp.dmos5.dao.ContactsDaoImpl;
-import br.edu.ifsp.dmos5.dao.Order;
 import br.edu.ifsp.dmos5.dao.UserDaoImpl;
 import br.edu.ifsp.dmos5.model.Contact;
 import br.edu.ifsp.dmos5.model.User;
 import br.edu.ifsp.dmos5.view.adapter.ContactSpinnerAdapter;
-
+import br.edu.ifsp.dmos5.view.constant.Constant;
 
 public class ContactsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
     private Spinner mSpinner;
     private TextView mTextView;
     private TextView nTextView;
     private Button buttonCreateNewContact;
-    private User user = null;
+    private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +57,7 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onClick(View view) {
         if (view == buttonCreateNewContact) {
-            registerNewContact();
+            registerNewContact(user);
         }
     }
     @Override
@@ -74,15 +73,16 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     }
 
     private void populateSpinner(){
-        List<Contact> dataset = new ContactsDaoImpl().findAll(Order.ALPHABETICALLY);
-        dataset.add(0, null);
-        ContactSpinnerAdapter adapter = new ContactSpinnerAdapter(this, android.R.layout.simple_spinner_item, dataset);
-        mSpinner.setAdapter(adapter);
+        if(user != null) {
+            List<Contact> dataset = user.getContacts().findAll();
+            dataset.add(0, null);
+            ContactSpinnerAdapter adapter = new ContactSpinnerAdapter(this, android.R.layout.simple_spinner_item, dataset);
+            mSpinner.setAdapter(adapter);
+        }
     }
-
     private void openDetailsActivity(Contact contact){
-        Contact contacts = (Contact) mSpinner.getSelectedItem();
         mTextView.setVisibility(View.VISIBLE);
+        nTextView.setVisibility(View.VISIBLE);
         mTextView.setText(contact.getName());
         nTextView.setText(contact.getPhoneNumber());
     }
@@ -106,8 +106,12 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
             finish();
         }
     }
-    private void registerNewContact() {
+    private void registerNewContact(User user) {
+        String username = getIntent().getStringExtra("username");
+        String password = getIntent().getStringExtra("password");
         Intent intent = new Intent(this, NewContactActivity.class);
+        intent.putExtra("username", username);
+        intent.putExtra("password", password);
         startActivity(intent);
     }
 }

@@ -10,53 +10,39 @@ import br.edu.ifsp.dmos5.model.Contact;
 import br.edu.ifsp.dmos5.model.User;
 
 public class ContactsDaoImpl implements ContactsDao {
-    private static ContactsDaoImpl instance = null;
     private List<Contact> database = new ArrayList<Contact>();
     public ContactsDaoImpl(){}
-    public static ContactsDaoImpl getInstance(){
-        if (instance == null){
-            instance = new ContactsDaoImpl();
-        }
-        return instance;
-    }
     @Override
     public void addContacts(Contact contact) {
         if(contact != null) {
             database.add(contact);
         }
     }
-
     @Override
     public Contact findByNickname(String nickname) {
         Contact foundContact = null;
         if (database.isEmpty()){
             return null;
         }else{
-            for(Contact user : database) {
-                if (user.getNickname().equals(nickname)) {
-                    foundContact = user;
+            for(Contact contacts : database) {
+                if(contacts != null) {
+                    if (contacts.getNickname().equals(nickname)) {
+                        foundContact = contacts;
+                    }
                 }
             }
         }
         return foundContact;
     }
+
     @Override
     public List<Contact> findAll() {
         return database;
     }
-
-    @Override
-    public List<Contact> findAll(Order order) {
-        Comparator<Contact> comparator = Comparator.comparing(Contact::getNickname);
-        if(order == Order.ALPHABETICALLY) {
-            return database.stream()
-                    .sorted(comparator)
-                    .collect(Collectors.toList());
-        }else{
-            return database.stream()
-                    .sorted(comparator.reversed())
-                    .collect(Collectors.toList());
-        }
+    public void getContacts(List<Contact> database) {
+        this.database = database;
     }
-
+    public void setUserContacts(List<Contact> database) {
+        this.database = database;
+    }
 }

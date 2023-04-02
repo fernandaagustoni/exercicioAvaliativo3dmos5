@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             addNewUser();
         }
     }
-
     private  void findById(){
         usernameEditText = findViewById(R.id.edittext_user);
         passwordEditText = findViewById(R.id.edittext_password);

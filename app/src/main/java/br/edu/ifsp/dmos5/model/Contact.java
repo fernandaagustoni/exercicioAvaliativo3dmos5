@@ -9,7 +9,6 @@ public class Contact {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
-
     public String getNickname() {
         return nickname;
     }
