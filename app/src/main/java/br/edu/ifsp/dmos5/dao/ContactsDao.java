@@ -8,5 +8,5 @@ public interface ContactsDao {
     void addContacts(Contact contact);
     Contact findByNickname(String username);
     List<Contact> findAll();
-
+    List<Contact> findAll(Order order);
 }

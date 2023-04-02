@@ -3,13 +3,10 @@ package br.edu.ifsp.dmos5.view;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import br.edu.ifsp.dmos5.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -22,14 +19,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        usernameEditText = findViewById(R.id.edittext_user);
-        passwordEditText = findViewById(R.id.edittext_password);
-        buttonSignIn = findViewById(R.id.btn_login);
-        buttonSignup = findViewById(R.id.btn_new_user);
-
-        buttonSignup.setOnClickListener(this);
-        buttonSignIn.setOnClickListener(this);
-
+        findById();
+        clickListener();
     }
 
     @Override
@@ -40,6 +31,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view == buttonSignup){
             addNewUser();
         }
+    }
+
+    private  void findById(){
+        usernameEditText = findViewById(R.id.edittext_user);
+        passwordEditText = findViewById(R.id.edittext_password);
+        buttonSignIn = findViewById(R.id.btn_login);
+        buttonSignup = findViewById(R.id.btn_new_user);
+    }
+    private  void clickListener(){
+        buttonSignup.setOnClickListener(this);
+        buttonSignIn.setOnClickListener(this);
     }
     private void openContacts(){
         String username = usernameEditText.getText().toString();
@@ -54,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
     }
-
     private void addNewUser(){
         Intent intent = new Intent(this, NewUserActivity.class);
         startActivity(intent);

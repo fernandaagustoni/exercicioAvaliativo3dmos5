@@ -7,19 +7,18 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import br.edu.ifsp.dmos5.model.Contact;
+import br.edu.ifsp.dmos5.model.User;
 
 public class ContactsDaoImpl implements ContactsDao {
     private static ContactsDaoImpl instance = null;
-    private List<Contact> database;
-    private ContactsDaoImpl(){};
-
+    private List<Contact> database = new ArrayList<Contact>();
+    public ContactsDaoImpl(){}
     public static ContactsDaoImpl getInstance(){
         if (instance == null){
             instance = new ContactsDaoImpl();
         }
         return instance;
     }
-
     @Override
     public void addContacts(Contact contact) {
         if(contact != null) {
@@ -28,21 +27,36 @@ public class ContactsDaoImpl implements ContactsDao {
     }
 
     @Override
-    public Contact findByNickname(String username) {
-        if (database == null){
-            database = new ArrayList<>();
-        }
-        for (Contact user : database){
-            if (Objects.equals(username, user.getNickname())){
-                return user;
+    public Contact findByNickname(String nickname) {
+        Contact foundContact = null;
+        if (database.isEmpty()){
+            return null;
+        }else{
+            for(Contact user : database) {
+                if (user.getNickname().equals(nickname)) {
+                    foundContact = user;
+                }
             }
         }
-        return null;
-
+        return foundContact;
     }
     @Override
     public List<Contact> findAll() {
         return database;
+    }
+
+    @Override
+    public List<Contact> findAll(Order order) {
+        Comparator<Contact> comparator = Comparator.comparing(Contact::getNickname);
+        if(order == Order.ALPHABETICALLY) {
+            return database.stream()
+                    .sorted(comparator)
+                    .collect(Collectors.toList());
+        }else{
+            return database.stream()
+                    .sorted(comparator.reversed())
+                    .collect(Collectors.toList());
+        }
     }
 
 }

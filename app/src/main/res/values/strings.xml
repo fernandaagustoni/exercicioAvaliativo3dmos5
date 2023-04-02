@@ -24,13 +24,7 @@
     <string name="message_welcome">Seja Bem Vindo</string>
     <string name="message_user_not_found">Usuário não encontrado</string>
     <string name="message_erro">Erro</string>
-    <string name="file_user">loginlocal.usuarios</string>
-    <string name="key_user">USUARIO</string>
-    <string name="key_password">SENHA</string>
-    <string name="key_remember">LEMBRAR</string>
-    <string name="key_users_db">USERS</string>
-    <string name="file_preferences">loginlocal.preferencias</string>
-    <string name="file_users">loginlocal.usuarios</string>
-    <string name="tag">LOGIN_LOCAL</string>
     <string name="message_get_users_error">Erro ao recuperar lista de usuários cadastrados.</string>
+    <string name="message_contact_created">O contato foi adicionado a sua lista</string>
+    <string name="message_contact_already_created">O contato já existe</string>
 </resources>

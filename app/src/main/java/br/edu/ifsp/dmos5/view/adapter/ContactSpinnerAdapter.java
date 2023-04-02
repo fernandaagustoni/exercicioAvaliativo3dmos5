@@ -15,6 +15,7 @@ import java.util.List;
 import br.edu.ifsp.dmos5.model.Contact;
 
 public class ContactSpinnerAdapter extends ArrayAdapter<Contact> {
+
     private List<Contact> listContact;
 
     public ContactSpinnerAdapter(@NonNull Context context, int resource, @NonNull List<Contact> values) {
@@ -26,7 +27,11 @@ public class ContactSpinnerAdapter extends ArrayAdapter<Contact> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         TextView textView = new TextView(getContext());
         textView.setTextColor(Color.BLACK);
-        textView.setText(getItem(position).getNickname());
+        if(getItem(position) == null){
+            textView.setText("");
+        }else {
+            textView.setText(getItem(position).getNickname());
+        }
         return textView;
     }
 
@@ -34,7 +39,11 @@ public class ContactSpinnerAdapter extends ArrayAdapter<Contact> {
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         TextView textView = new TextView(getContext());
         textView.setTextColor(Color.BLACK);
-        textView.setText(getItem(position).getNickname());
+        if(getItem(position) == null){
+            textView.setText("");
+        }else {
+            textView.setText(getItem(position).getNickname());
+        }
         textView.setPadding(8, 8, 8, 8);
         return textView;
     }

@@ -40,8 +40,8 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:hint="@string/hint_input_new_contact_phonenumber"
-        android:inputType="text"
         android:textColor="#000"
+        android:inputType="numberDecimal"
         app:layout_constraintTop_toBottomOf="@+id/edittext_new_contact_fullname" />
 
     <Button
