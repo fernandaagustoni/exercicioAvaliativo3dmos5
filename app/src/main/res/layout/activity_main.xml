@@ -33,20 +33,11 @@
         android:textColor="#000"
         app:layout_constraintTop_toBottomOf="@+id/edittext_user" />
 
-    <CheckBox
-        android:id="@+id/checkbox_remember"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/remember_login"
-        app:layout_constraintStart_toStartOf="@+id/edittext_password"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_password" />
-
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/button_login"

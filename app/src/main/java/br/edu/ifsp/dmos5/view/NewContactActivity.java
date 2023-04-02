@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -14,14 +15,14 @@ import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
 
 import br.edu.ifsp.dmos5.R;
+import br.edu.ifsp.dmos5.dao.ContactsDaoImpl;
+import br.edu.ifsp.dmos5.model.Contact;
 
 public class NewContactActivity extends AppCompatActivity implements View.OnClickListener{
-
     private Button saveButton;
     private EditText nicknameEditText;
     private EditText fullnameEditText;
     private EditText phonenumberEditText;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,8 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_new_contact);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         saveButton = findViewById(R.id.btn_create_new_user);
+
+        saveButton.setOnClickListener(this);
     }
 
     @Override
@@ -47,6 +50,7 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void saveContact() {
+        Bundle bundle = getIntent().getExtras();
     }
 
 }

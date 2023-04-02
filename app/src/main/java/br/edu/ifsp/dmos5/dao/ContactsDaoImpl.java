@@ -3,20 +3,21 @@ package br.edu.ifsp.dmos5.dao;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import br.edu.ifsp.dmos5.model.Contact;
 
 public class ContactsDaoImpl implements ContactsDao {
+    private static ContactsDaoImpl instance = null;
+    private List<Contact> database;
+    private ContactsDaoImpl(){};
 
-    private final List<Contact> database;
-
-    public ContactsDaoImpl(){
-        database = new ArrayList<>(30);
-
-        database.add(new Contact(1,"Fer", "Fernanda", "111"));
-        database.add(new Contact(2,"Rafa", "Rafael", "222"));
-        database.add(new Contact(3,"Ana", "Ana Silva", "333"));
+    public static ContactsDaoImpl getInstance(){
+        if (instance == null){
+            instance = new ContactsDaoImpl();
+        }
+        return instance;
     }
 
     @Override
@@ -27,29 +28,21 @@ public class ContactsDaoImpl implements ContactsDao {
     }
 
     @Override
-    public Contact findById(int id) {
-        return database.stream()
-                .filter(contact1 -> contact1.getId() == id)
-                .findAny()
-                .orElse(null);
-    }
+    public Contact findByNickname(String username) {
+        if (database == null){
+            database = new ArrayList<>();
+        }
+        for (Contact user : database){
+            if (Objects.equals(username, user.getNickname())){
+                return user;
+            }
+        }
+        return null;
 
+    }
     @Override
     public List<Contact> findAll() {
         return database;
     }
 
-    @Override
-    public List<Contact> findAll(Order order) {
-        Comparator<Contact> comparator = Comparator.comparing(Contact::getPhoneNumber);
-        if(order == Order.ALPHABETICALLY) {
-            return database.stream()
-                    .sorted(comparator)
-                    .collect(Collectors.toList());
-        }else{
-            return database.stream()
-                    .sorted(comparator.reversed())
-                    .collect(Collectors.toList());
-        }
-    }
 }

@@ -6,10 +6,7 @@ import br.edu.ifsp.dmos5.model.Contact;
 
 public interface ContactsDao {
     void addContacts(Contact contact);
-
-    Contact findById(int id);
-
+    Contact findByNickname(String username);
     List<Contact> findAll();
 
-    List<Contact> findAll(Order order);
 }

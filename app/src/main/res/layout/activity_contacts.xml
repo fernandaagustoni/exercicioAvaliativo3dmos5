@@ -25,17 +25,17 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="70dp"
         android:layout_marginTop="20dp"
-        android:textSize="14dp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="@+id/textview_message"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_message" />
 
     <TextView
-        android:id="@+id/textview_details"
+        android:id="@+id/textview_details_fullname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="45dp"
-        android:textAlignment="center"
+        android:layout_margin="35dp"
+        android:textAlignment="textStart"
         android:textColor="@color/darkPink"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,12 +45,13 @@
         android:id="@+id/textview_details_phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:textAlignment="textStart"
         android:textColor="@color/darkPink"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_details" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_details_fullname" />
 
     <Button
         android:id="@+id/btn_create_new_contact"
