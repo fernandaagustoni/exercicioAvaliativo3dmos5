@@ -10,5 +10,5 @@ public interface UserDao {
     User findByUsername(String username);
     boolean validateUser(String username, String password);
     List<User> findAll();
-    //void setUserContacts();
+
 }

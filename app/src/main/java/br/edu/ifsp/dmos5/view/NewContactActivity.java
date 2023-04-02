@@ -10,11 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import br.edu.ifsp.dmos5.R;
-import br.edu.ifsp.dmos5.dao.ContactsDaoImpl;
 import br.edu.ifsp.dmos5.dao.UserDaoImpl;
 import br.edu.ifsp.dmos5.model.Contact;
 import br.edu.ifsp.dmos5.model.User;
-import br.edu.ifsp.dmos5.view.constant.Constant;
+
 
 public class NewContactActivity extends AppCompatActivity implements View.OnClickListener{
     private Button saveButton;
@@ -77,6 +76,7 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
             Log.i(nickname,"I am here Nick");
             Log.i(fullName,"I am here Full");
             Log.i(phoneNumber,"I am here Phone");
+            finish();
         }else{
             Toast.makeText(this, R.string.message_contact_already_created, Toast.LENGTH_SHORT).show();
         }

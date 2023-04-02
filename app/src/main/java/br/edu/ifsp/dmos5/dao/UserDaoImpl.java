@@ -1,27 +1,19 @@
 package br.edu.ifsp.dmos5.dao;
 
-
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
-import br.edu.ifsp.dmos5.model.Contact;
 import br.edu.ifsp.dmos5.model.User;
 
 public class UserDaoImpl implements UserDao {
     private static UserDaoImpl instance = null;
     private static List<User> database = new ArrayList<User>();
-    public UserDaoImpl(){};
-
+    public UserDaoImpl(){}
     public static UserDaoImpl getInstance(){
         if (instance == null){
             instance = new UserDaoImpl();
         }
         return instance;
     }
-
     public boolean validateUser(String username, String password){
         if (database.isEmpty()){
             return false;
@@ -54,13 +46,8 @@ public class UserDaoImpl implements UserDao {
         }
         return foundUser;
     }
-    public static void setUser(List<User> database){
-        UserDaoImpl.database = database;
-    }
-
     @Override
     public List<User> findAll() {
         return database;
     }
-
 }

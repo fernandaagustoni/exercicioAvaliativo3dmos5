@@ -18,7 +18,6 @@ import br.edu.ifsp.dmos5.dao.UserDaoImpl;
 import br.edu.ifsp.dmos5.model.Contact;
 import br.edu.ifsp.dmos5.model.User;
 import br.edu.ifsp.dmos5.view.adapter.ContactSpinnerAdapter;
-import br.edu.ifsp.dmos5.view.constant.Constant;
 
 public class ContactsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
     private Spinner mSpinner;
