@@ -105,6 +105,7 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         if(bundle != null) {
             String username = getIntent().getStringExtra("username");
             String password = getIntent().getStringExtra("password");
+            String passwordMD5 = Cryptography.getHashMd5(password);
 
             if (UserDaoImpl.getInstance().validateUser(username, password)) {
                 user = UserDaoImpl.getInstance().findByUsername(username);

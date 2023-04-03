@@ -2,6 +2,8 @@ package br.edu.ifsp.dmos5.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import br.edu.ifsp.dmos5.model.Cryptography;
 import br.edu.ifsp.dmos5.model.User;
 
 public class UserDaoImpl implements UserDao {
@@ -20,7 +22,7 @@ public class UserDaoImpl implements UserDao {
             return false;
         }else{
             for(User user : database) {
-                if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                if (user.getUsername().equals(username) && user.getPassword().equals(Cryptography.getHashMd5(password))) {
                     return true;
                 }
             }

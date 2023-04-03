@@ -15,6 +15,7 @@ public class User {
         this.database = new ContactsDaoImpl();
         this.username = username;
         this.password = password;
+        this.password = Cryptography.getHashMd5(password);
     }
     public String getUsername() {
         return username;
