@@ -2,10 +2,7 @@ package br.edu.ifsp.dmos5.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +20,6 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
     private EditText fullnameEditText;
     private EditText phonenumberEditText;
     private User mUser ;
-    private String u;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +64,6 @@ public class NewContactActivity extends AppCompatActivity implements View.OnClic
             saveContact();
         }
     }
-
     private void saveContact() {
         String nickname = nicknameEditText.getText().toString();
         String fullName = fullnameEditText.getText().toString();

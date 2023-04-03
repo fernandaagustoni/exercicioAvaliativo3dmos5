@@ -12,20 +12,11 @@ public class Contact {
     public String getNickname() {
         return nickname;
     }
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
     public String getName() {
         return name;
     }
-    public void setName(String nome) {
-        this.name = name;
-    }
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
 }

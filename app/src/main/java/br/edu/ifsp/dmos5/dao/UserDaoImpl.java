@@ -2,7 +2,6 @@ package br.edu.ifsp.dmos5.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import br.edu.ifsp.dmos5.model.Cryptography;
 import br.edu.ifsp.dmos5.model.User;
 
@@ -48,9 +47,5 @@ public class UserDaoImpl implements UserDao {
             }
         }
         return foundUser;
-    }
-    @Override
-    public List<User> findAll() {
-        return database;
     }
 }

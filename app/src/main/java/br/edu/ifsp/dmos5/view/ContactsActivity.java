@@ -3,10 +3,7 @@ package br.edu.ifsp.dmos5.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.List;
 import br.edu.ifsp.dmos5.R;
-import br.edu.ifsp.dmos5.dao.ContactsDaoImpl;
 import br.edu.ifsp.dmos5.dao.UserDaoImpl;
 import br.edu.ifsp.dmos5.model.Contact;
 import br.edu.ifsp.dmos5.model.Cryptography;
@@ -105,7 +101,6 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         if(bundle != null) {
             String username = getIntent().getStringExtra("username");
             String password = getIntent().getStringExtra("password");
-            String passwordMD5 = Cryptography.getHashMd5(password);
 
             if (UserDaoImpl.getInstance().validateUser(username, password)) {
                 user = UserDaoImpl.getInstance().findByUsername(username);
@@ -121,7 +116,6 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         if(bundle != null){
             String username = getIntent().getStringExtra("username");
             String password = getIntent().getStringExtra("password");
-            String passwordMD5 = Cryptography.getHashMd5(password);
         }
         Intent intent = new Intent(this, NewContactActivity.class);
         intent.putExtras(bundle);

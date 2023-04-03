@@ -3,13 +3,11 @@ package br.edu.ifsp.dmos5.view;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import br.edu.ifsp.dmos5.R;
-import br.edu.ifsp.dmos5.model.Cryptography;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText usernameEditText;
@@ -47,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void openContacts(){
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-        String passwordMD5 = Cryptography.getHashMd5(password);
 
         Bundle bundle = new Bundle();
         bundle.putString("username", username);
@@ -56,8 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(username.matches("") || password.matches("")){
             Toast.makeText(this, R.string.message_empty_field, Toast.LENGTH_LONG).show();
         }else{
-            Log.i(username,"username");
-            Log.i(passwordMD5,"passwordMD5");
             Intent intent = new Intent(this, ContactsActivity.class);
             intent.putExtras(bundle);
             startActivity(intent);
