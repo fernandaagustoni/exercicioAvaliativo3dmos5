@@ -29,7 +29,6 @@ public class UserDaoImpl implements UserDao {
         }
         return false;
     }
-
     @Override
     public void userAdd(User user) {
         if(user != null){
