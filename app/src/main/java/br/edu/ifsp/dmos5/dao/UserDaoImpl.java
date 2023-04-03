@@ -14,6 +14,7 @@ public class UserDaoImpl implements UserDao {
         }
         return instance;
     }
+    @Override
     public boolean validateUser(String username, String password){
         if (database.isEmpty()){
             return false;
@@ -33,14 +34,14 @@ public class UserDaoImpl implements UserDao {
             database.add(user);
         }
     }
-
-    public User findByUsername(String userLogin){
+    @Override
+    public User findByUsername(String username){
         User foundUser = null;
         if (database.isEmpty()){
             return null;
         }else{
             for(User user : database) {
-                if (user.getUsername().equals(userLogin)) {
+                if (user.getUsername().equals(username)) {
                     foundUser = user;
                 }
             }

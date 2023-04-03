@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,7 +30,6 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
     private Button buttonCreateNewContact;
     private Button buttonCall;
     private User user;
-    String phoneNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,13 +100,11 @@ public class ContactsActivity extends AppCompatActivity implements AdapterView.O
         }
         return super.onOptionsItemSelected(item);
     }
-
     private void getUsers(){
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
             String username = getIntent().getStringExtra("username");
             String password = getIntent().getStringExtra("password");
-            String passwordMD5 = Cryptography.getHashMd5(password);
 
             if (UserDaoImpl.getInstance().validateUser(username, password)) {
                 user = UserDaoImpl.getInstance().findByUsername(username);

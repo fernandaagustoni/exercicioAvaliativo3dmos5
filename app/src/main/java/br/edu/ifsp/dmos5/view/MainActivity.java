@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Bundle bundle = new Bundle();
         bundle.putString("username", username);
-        bundle.putString("password", username);
+        bundle.putString("password", password);
 
         if(username.matches("") || password.matches("")){
             Toast.makeText(this, R.string.message_empty_field, Toast.LENGTH_LONG).show();

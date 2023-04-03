@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import br.edu.ifsp.dmos5.R;
 import br.edu.ifsp.dmos5.dao.UserDaoImpl;
+import br.edu.ifsp.dmos5.model.Cryptography;
 import br.edu.ifsp.dmos5.model.User;
 
 public class NewUserActivity extends AppCompatActivity implements View.OnClickListener{
